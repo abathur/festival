@@ -102,17 +102,18 @@ LISP FT_Int_Targets_Simple_Utt(LISP utt)
 	end_syl = daughtern(daughtern(p),"SylStructure");
 
 	if (start_syl)
+	{
 	    add_target(*u,daughter1(start_syl,"SylStructure"),
 	       ffeature(start_syl,"R:SylStructure.daughter1.segment_start"),
 		       baseline);
-	for (s=start_syl->as_relation("Syllable"); s != inext(end_syl); 
-	     s = inext(s))
-	{
-	    if (ffeature(s,"accented") == 1)
-		add_targets(*u,s,baseline,f0_std);
-	    baseline -= decline*(ffeature(s,"syllable_duration").Float());
+	    for (s=start_syl->as_relation("Syllable"); s != inext(end_syl); 
+	         s = inext(s))
+	    {
+	        if (ffeature(s,"accented") == 1)
+		    add_targets(*u,s,baseline,f0_std);
+	        baseline -= decline*(ffeature(s,"syllable_duration").Float());
+	    }
 	}
-
 	if (end_syl)
 	    add_target(*u,daughtern(end_syl,"SylStructure"),
 		   ffeature(end_syl,"R:SylStructure.daughtern.segment_end"),

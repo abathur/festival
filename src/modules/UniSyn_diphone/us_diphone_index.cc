@@ -278,8 +278,8 @@ static void us_get_all_diphones(EST_Relation &diphone)
     }
 }
 
-int read_diphone_index(const EST_String &filename, 
-			  USDiphIndex &di)
+EST_read_status read_diphone_index(const EST_String &filename, 
+		 	 	   USDiphIndex &di)
 {
     EST_TokenStream ts;
     int i, ref;

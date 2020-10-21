@@ -46,7 +46,7 @@ extern USDiphIndex *diph_index;
 LISP us_dbs = NIL;
 LISP us_make_group_file(LISP lname, LISP params);
 
-int read_diphone_index(const EST_String &filename, 
+EST_read_status read_diphone_index(const EST_String &filename, 
 			  USDiphIndex &di);
 void us_check_db();
 

@@ -43,6 +43,7 @@
 #include <cstdlib>
 #include "festival.h"
 #include "festivalP.h"
+#include "EST_common.h"
 #include "siod.h"
 #include "ModuleDescription.h"
 
@@ -513,21 +514,27 @@ int utf8_chr(int ord, char* utf8char) {
     case 6:
       utf8char[i--] = (ord | 0x80) & 0xBF;
       ord >>= 6;
+      EST_SWITCH_FALLTHROUGH;
     case 5:
       utf8char[i--] = (ord | 0x80) & 0xBF;
       ord >>= 6;
+      EST_SWITCH_FALLTHROUGH;
     case 4:
       utf8char[i--] = (ord | 0x80) & 0xBF;
       ord >>= 6;
+      EST_SWITCH_FALLTHROUGH;
     case 3:
       utf8char[i--] = (ord | 0x80) & 0xBF;
       ord >>= 6;
+      EST_SWITCH_FALLTHROUGH;
     case 2:
       utf8char[i--] = (ord | 0x80) & 0xBF;
       ord >>= 6;
+      EST_SWITCH_FALLTHROUGH;
     case 1:
       switch (utf8len) {
         case 0:
+          EST_SWITCH_FALLTHROUGH;
         case 1:
           utf8char[i--] = ord;
           break;

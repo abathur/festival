@@ -88,10 +88,13 @@
 #define HTS_VOCODER_ME_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_VOCODER_ME_C_START;
+HTS_VOCODER_ME_C_START
 
 #include "./HTS_vocoder_me.h"
+
+#define INCLUDING_FROM_CLUSTERGEN
 #include "../hts_engine/HTS_vocoder.c"
+#undef INCLUDING_FROM_CLUSTERGEN
 
 /* HTS_Vocoder_initialize_me: initialize vocoder (mixed excitation) */
 void HTS_Vocoder_initialize_me(HTS_Vocoder_ME * v_me,
@@ -387,6 +390,6 @@ void HTS_Vocoder_clear_me(HTS_Vocoder_ME * v_me)
   }
 }
 
-HTS_VOCODER_ME_C_END;
+HTS_VOCODER_ME_C_END
 
 #endif                          /* !HTS_VOCODER_ME_C */

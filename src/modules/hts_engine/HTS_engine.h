@@ -53,7 +53,7 @@
 #define HTS_ENGINE_H_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_ENGINE_H_START;
+HTS_ENGINE_H_START
 
 #include <stdio.h>
 
@@ -450,6 +450,6 @@ void HTS_Engine_refresh(HTS_Engine * engine);
 /* HTS_Engine_clear: free engine */
 void HTS_Engine_clear(HTS_Engine * engine);
 
-HTS_ENGINE_H_END;
+HTS_ENGINE_H_END
 
 #endif                          /* !HTS_ENGINE_H */

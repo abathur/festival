@@ -53,7 +53,7 @@
 #define HTS_LABEL_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_LABEL_C_START;
+HTS_LABEL_C_START
 
 #include <stdlib.h>             /* for atof() */
 #include <ctype.h>              /* for isprint(),isdigit() */
@@ -258,6 +258,6 @@ void HTS_Label_clear(HTS_Label * label)
    HTS_Label_initialize(label);
 }
 
-HTS_LABEL_C_END;
+HTS_LABEL_C_END
 
 #endif                          /* !HTS_LABEL_C */

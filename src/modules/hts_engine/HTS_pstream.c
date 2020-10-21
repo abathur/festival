@@ -53,9 +53,10 @@
 #define HTS_PSTREAM_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_PSTREAM_C_START;
+HTS_PSTREAM_C_START
 
 #include <math.h>               /* for sqrt() */
+#include <stddef.h>
 
 /* hts_engine libraries */
 #include "HTS_hidden.h"
@@ -501,6 +502,6 @@ void HTS_PStreamSet_clear(HTS_PStreamSet * pss)
    HTS_PStreamSet_initialize(pss);
 }
 
-HTS_PSTREAM_C_END;
+HTS_PSTREAM_C_END
 
 #endif                          /* !HTS_PSTREAM_C */

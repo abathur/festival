@@ -53,7 +53,7 @@
 #define HTS_MISC_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_MISC_C_START;
+HTS_MISC_C_START
 
 #include <stdlib.h>             /* for exit(),calloc(),free() */
 #include <stdarg.h>             /* for va_list */
@@ -606,6 +606,6 @@ void HTS_error(int error, const char *message, ...)
       exit(error);
 }
 
-HTS_MISC_C_END;
+HTS_MISC_C_END
 
 #endif                          /* !HTS_MISC_C */

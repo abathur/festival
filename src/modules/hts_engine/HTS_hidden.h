@@ -53,10 +53,11 @@
 #define HTS_HIDDEN_H_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_HIDDEN_H_START;
+HTS_HIDDEN_H_START
 
 /* hts_engine libraries */
 #include "HTS_engine.h"
+#include "stddef.h"
 
 /* common ---------------------------------------------------------- */
 
@@ -499,6 +500,6 @@ void HTS_Vocoder_synthesize(HTS_Vocoder * v, size_t m, double lf0, double *spect
 /* HTS_Vocoder_clear: clear vocoder */
 void HTS_Vocoder_clear(HTS_Vocoder * v);
 
-HTS_HIDDEN_H_END;
+HTS_HIDDEN_H_END
 
 #endif                          /* !HTS_HIDDEN_H */

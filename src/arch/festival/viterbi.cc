@@ -40,6 +40,8 @@
 #include "festival.h"
 #include "lexicon.h"
 
+using namespace std;
+
 static EST_VTCandidate *gv_candlist(EST_Item *s,EST_Features &f);
 static EST_VTPath *gv_npath(EST_VTPath *p,EST_VTCandidate *c,EST_Features &f);
 static double gv_find_wfst_prob(EST_VTPath *p,EST_WFST &wfst,

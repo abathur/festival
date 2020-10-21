@@ -49,6 +49,8 @@
 
 #include "DiphoneVoiceModule.h" //for getJoinTime(const EST_Item *it)
 
+using namespace std;
+
 // Do some additional target cost here, based on the acoustic
 // properties of the units found matching this target unit. (Changes
 // the candidate list "candidates" in place.)  This currently is

@@ -45,6 +45,8 @@
 #include <iostream>
 #include <cmath>
 
+using namespace std;
+
 EST_JoinCostCache::EST_JoinCostCache( unsigned int id )
   : numInstances(0),
     _id(id),

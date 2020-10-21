@@ -60,8 +60,6 @@
 #include "ling_class/EST_Item.h"
 #include <iostream>
 
-using namespace std;
-
 class EST_JoinCost;
 
 class EST_JoinCostCache {
@@ -74,7 +72,7 @@ public:
 
   unsigned int id() const {return _id;}
   
-  ostream& write( ostream &os ) const;
+  std::ostream& write( std::ostream &os ) const;
   unsigned char val( unsigned int a, unsigned int b ) const;
   bool setval( unsigned int a, unsigned int b, unsigned char v );
 

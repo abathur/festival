@@ -202,6 +202,11 @@ static int *pipe_open(const char *command)
     int *fds;
 
     argv = enargen(command,&argc);
+    if (argv == NULL)
+    {
+	cerr << "pipe_open: error parsing command: \"" << command << "\"\n";
+	festival_error();
+    }
     fds = walloc(int,2);
 
     if (start_sub_process(fds,argc,argv) != 0)

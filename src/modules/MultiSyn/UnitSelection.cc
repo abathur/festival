@@ -84,7 +84,10 @@ static LISP FT_utt_tag_unit( LISP l_utt, LISP l_unitnum )
   const int n = get_c_int( l_unitnum );
   
   if( n<1 )
+  {
     EST_error( "unit number must be greater than 1" );
+    return NIL;
+  }
 
   EST_Item *it = u->relation("Unit")->first();  
   int i;
@@ -92,8 +95,11 @@ static LISP FT_utt_tag_unit( LISP l_utt, LISP l_unitnum )
     it=inext(it);
   
   if( i<=n )
+  {
     EST_error( "unit number greater than number of items in unit relation") ;
- 
+    return NIL;
+  }
+
   ItemList* omitlist=0;
   
   if( !it->f_present("omitlist") ){

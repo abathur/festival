@@ -68,18 +68,27 @@ const char *festival_version =  STRINGIZE(FTVERSION) ":" STRINGIZE(FTSTATE) " " 
 #ifdef FTLIBDIRC
 #    define FTLIBDIR STRINGIZE(FTLIBDIRC)
 #endif
+#ifdef FTLIBEXECDIRC
+#    define FTLIBEXECDIR STRINGIZE(FTLIBEXECDIRC)
+#endif
 #ifdef FTOSTYPEC
 #    define FTOSTYPE STRINGIZE(FTOSTYPEC)
 #endif
 
 #ifndef FTLIBDIR
-#define FTLIBDIR "/projects/festival/lib/"
+#error Please define FTLIBDIRC (unquoted) or FTLIBDIR (quoted) pointing to the festival libdir
 #endif
+
+#ifndef FTLIBEXECDIR
+#error Please define FTLIBEXECDIRC (unquoted) or FTLIBEXECDIR (quoted) pointing to the festival libexecdir
+#endif
+
 #ifndef FTOSTYPE
 #define FTOSTYPE ""
 #endif
 
 const char *festival_libdir = FTLIBDIR;
+const char *festival_libexecdir = FTLIBEXECDIR;
 ostream *cdebug;
 static int festival_server_port = 1314;
 static EST_StrList sub_copyrights;

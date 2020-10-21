@@ -124,7 +124,7 @@ LISP l_audio_mode(LISP mode)
 	{
 	    audio = ft_get_param("Audio_Method");
 	    command = ft_get_param("Audio_Command");
-	    audfds = pipe_open("audsp");
+	    audfds = pipe_open((const char*) EST_String::cat(festival_libexecdir, "/audsp"));
 	    if (audio != NIL)
 		audsp_send(EST_String("method ")+get_c_string(audio));
 	    if (command != NIL)

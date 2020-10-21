@@ -134,7 +134,7 @@ static HTS_Boolean HTS_is_num(const char *buff)
 /* HTS_name2num: convert name of node to number */
 static size_t HTS_name2num(const char *buff)
 {
-   size_t i;
+   ptrdiff_t i;
 
    for (i = strlen(buff) - 1; '0' <= buff[i] && buff[i] <= '9' && i >= 0; i--);
    i++;

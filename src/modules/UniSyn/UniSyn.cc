@@ -44,9 +44,9 @@
 #include "Phone.h"
 
 VAL_REGISTER_TYPE(ivector,EST_IVector)
-VAL_REGISTER_TYPE(wavevector,EST_WaveVector);
+VAL_REGISTER_TYPE(wavevector,EST_WaveVector)
 
-SIOD_REGISTER_TYPE(wavevector, EST_WaveVector);
+SIOD_REGISTER_TYPE(wavevector, EST_WaveVector)
 
 void map_to_relation(EST_IVector &map, EST_Relation &r, 
 		     const EST_Track &source_pm, 

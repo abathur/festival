@@ -54,7 +54,7 @@ static EST_Val ff_addr(EST_Item *i)
 
     // The address of the contents so that the same item from different views
     // have the same address
-    sprintf(a,"%p",i->contents());  
+    sprintf(a,"%p", (void*) i->contents());  
     return EST_Val(a);
 }
 

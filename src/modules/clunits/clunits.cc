@@ -101,8 +101,8 @@ static float optimal_couple(CLunit *u0,
 static void cl_parse_diphone_times(EST_Relation &diphone_stream, 
 				   EST_Relation &source_lab);
 
-VAL_REGISTER_CLASS_NODEL(vtcand,EST_VTCandidate);
-VAL_REGISTER_CLASS_NODEL(clunit,CLunit);
+VAL_REGISTER_CLASS_NODEL(vtcand,EST_VTCandidate)
+VAL_REGISTER_CLASS_NODEL(clunit,CLunit)
 
 LISP selection_trees = NIL;
 LISP clunits_params = NIL;

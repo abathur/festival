@@ -189,7 +189,6 @@ static LISP wave_save_header_fp(LISP arglist)
     LISP lstype = car(arglist);
     arglist = cdr(arglist);
     LISP force_values = car(arglist);
-    arglist = cdr(arglist);
 
     FILE *fp;
     fp = get_c_file(lfp, NULL);
@@ -609,9 +608,6 @@ static float f0_interpolate(EST_Item *ptval, EST_Item *tval, float time)
     // GM: changed, to use proper targets
     // Return interpolated F0 at time t
     float p1,p0,d1,d0;
-
-    d0=0;
-    d1=0;
 
     if (tval == 0)                 // after last target
  	return ffeature(ptval,"f0");

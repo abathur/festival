@@ -113,5 +113,5 @@ DOCXX_DIRS = $(TOP)/src
 MODULE_TO_DOCXX = perl $(TOP)/src/modules/utilities/extract_module_doc++.prl
 
 FTLIBDIR = $(FESTIVAL_HOME)/lib 
-FTLIBEXECDIR = $(FESTIVAL_HOME)/bin
+FTLIBEXECDIR = $(FESTIVAL_HOME)/lib/etc/$(SYSTEM_TYPE)
 

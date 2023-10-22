@@ -53,7 +53,7 @@
 #define HTS_VOCODER_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_VOCODER_C_START;
+HTS_VOCODER_C_START
 
 #include <math.h>               /* for sqrt(),log(),exp(),pow(),cos() */
 
@@ -641,6 +641,7 @@ static double HTS_white_noise(HTS_Vocoder * v)
       return (double) HTS_mseq(v);
 }
 
+#ifndef INCLUDING_FROM_CLUSTERGEN
 /* HTS_ping_pulse: ping pulse using low-pass filter */
 static void HTS_ping_pulse(HTS_Vocoder * v, const int ping_place, const double p, const int nlpf, const double *lpf)
 {
@@ -666,6 +667,7 @@ static void HTS_ping_noise(HTS_Vocoder * v, const int ping_place, const int nlpf
             v->pulse_buff[i] += power * (0.0 - lpf[j]);
       }
 }
+#endif
 
 /* HTS_Vocoder_initialize_excitation: initialize excitation */
 static void HTS_Vocoder_initialize_excitation(HTS_Vocoder * v, size_t nlpf)
@@ -699,6 +701,7 @@ static void HTS_Vocoder_start_excitation(HTS_Vocoder * v, const double pitch, co
    v->p = pitch;
 }
 
+#ifndef INCLUDING_FROM_CLUSTERGEN
 /* HTS_Vocoder_get_excitation: get excitation of each sample */
 static double HTS_Vocoder_get_excitation(HTS_Vocoder * v, const int fprd_index, const int iprd_index, const int nlpf, const double *lpf)
 {
@@ -754,6 +757,7 @@ static double HTS_Vocoder_get_excitation(HTS_Vocoder * v, const int fprd_index, 
    }
    return x;
 }
+#endif
 
 /* HTS_Vocoder_end_excitation: end excitation of each frame */
 static void HTS_Vocoder_end_excitation(HTS_Vocoder * v, const int nlpf)
@@ -836,6 +840,8 @@ static void HTS_Vocoder_postfilter_lsp(HTS_Vocoder * v, double *lsp, size_t m, d
       }
    }
 }
+
+#ifndef INCLUDING_FROM_CLUSTERGEN
 
 /* HTS_Vocoder_initialize: initialize vocoder */
 void HTS_Vocoder_initialize(HTS_Vocoder * v, size_t m, size_t stage, HTS_Boolean use_log_gain, size_t rate, size_t fperiod)
@@ -1016,6 +1022,8 @@ void HTS_Vocoder_clear(HTS_Vocoder * v)
    }
 }
 
-HTS_VOCODER_C_END;
+#endif /* INCLUDING_FROM_CLUSTERGEN */
+
+HTS_VOCODER_C_END
 
 #endif                          /* !HTS_VOCODER_C */

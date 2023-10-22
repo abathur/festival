@@ -43,6 +43,8 @@
 #include "us_diphone.h"
 #include "Phone.h"
 
+using namespace std;
+
 static bool US_full_coefs = false;
 USDiphIndex *diph_index = 0;
 extern LISP us_dbs;
@@ -278,8 +280,8 @@ static void us_get_all_diphones(EST_Relation &diphone)
     }
 }
 
-int read_diphone_index(const EST_String &filename, 
-			  USDiphIndex &di)
+EST_read_status read_diphone_index(const EST_String &filename, 
+		 	 	   USDiphIndex &di)
 {
     EST_TokenStream ts;
     int i, ref;

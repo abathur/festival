@@ -43,8 +43,11 @@
 #include <cstdlib>
 #include "festival.h"
 #include "festivalP.h"
+#include "EST_common.h"
 #include "siod.h"
 #include "ModuleDescription.h"
+
+using namespace std;
 
 void festival_lisp_funcs(void);
 void festival_lisp_vars(void);
@@ -68,18 +71,27 @@ const char *festival_version =  STRINGIZE(FTVERSION) ":" STRINGIZE(FTSTATE) " " 
 #ifdef FTLIBDIRC
 #    define FTLIBDIR STRINGIZE(FTLIBDIRC)
 #endif
+#ifdef FTLIBEXECDIRC
+#    define FTLIBEXECDIR STRINGIZE(FTLIBEXECDIRC)
+#endif
 #ifdef FTOSTYPEC
 #    define FTOSTYPE STRINGIZE(FTOSTYPEC)
 #endif
 
 #ifndef FTLIBDIR
-#define FTLIBDIR "/projects/festival/lib/"
+#error Please define FTLIBDIRC (unquoted) or FTLIBDIR (quoted) pointing to the festival libdir
 #endif
+
+#ifndef FTLIBEXECDIR
+#error Please define FTLIBEXECDIRC (unquoted) or FTLIBEXECDIR (quoted) pointing to the festival libexecdir
+#endif
+
 #ifndef FTOSTYPE
 #define FTOSTYPE ""
 #endif
 
 const char *festival_libdir = FTLIBDIR;
+const char *festival_libexecdir = FTLIBEXECDIR;
 ostream *cdebug;
 static int festival_server_port = 1314;
 static EST_StrList sub_copyrights;
@@ -504,21 +516,27 @@ int utf8_chr(int ord, char* utf8char) {
     case 6:
       utf8char[i--] = (ord | 0x80) & 0xBF;
       ord >>= 6;
+      EST_SWITCH_FALLTHROUGH;
     case 5:
       utf8char[i--] = (ord | 0x80) & 0xBF;
       ord >>= 6;
+      EST_SWITCH_FALLTHROUGH;
     case 4:
       utf8char[i--] = (ord | 0x80) & 0xBF;
       ord >>= 6;
+      EST_SWITCH_FALLTHROUGH;
     case 3:
       utf8char[i--] = (ord | 0x80) & 0xBF;
       ord >>= 6;
+      EST_SWITCH_FALLTHROUGH;
     case 2:
       utf8char[i--] = (ord | 0x80) & 0xBF;
       ord >>= 6;
+      EST_SWITCH_FALLTHROUGH;
     case 1:
       switch (utf8len) {
         case 0:
+          EST_SWITCH_FALLTHROUGH;
         case 1:
           utf8char[i--] = ord;
           break;

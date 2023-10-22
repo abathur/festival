@@ -44,7 +44,7 @@
 #define HTS_VOCODER_ME_H_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_VOCODER_ME_H_START;
+HTS_VOCODER_ME_H_START
 
 /* hts_engine libraries */
 #include <HTS_hidden.h>
@@ -93,6 +93,6 @@ void HTS_Vocoder_synthesize_me(HTS_Vocoder_ME * v_me, const int m,
 void HTS_Vocoder_clear_me(HTS_Vocoder_ME * v_me);
 
 
-HTS_VOCODER_ME_H_END;
+HTS_VOCODER_ME_H_END
 
 #endif                          /* !HTS_VOCODER_ME_H */

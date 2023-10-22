@@ -43,6 +43,8 @@
 #include "festival.h"
 #include "diphone.h"
 
+using namespace std;
+
 static unsigned int DIPHONE_MAGIC=0x46544449;  /* FTDI */
 
 static void load_index(DIPHONE_DATABASE *database);

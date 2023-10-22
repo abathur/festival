@@ -41,6 +41,8 @@
 #include "festival.h"
 #include "modules.h"
 
+using namespace std;
+
 static EST_String stressname("stress");
 static EST_Val val_string0("0");
 static EST_Val val_string1("1");
@@ -54,7 +56,7 @@ static EST_Val ff_addr(EST_Item *i)
 
     // The address of the contents so that the same item from different views
     // have the same address
-    sprintf(a,"%p",i->contents());  
+    sprintf(a,"%p", (void*) i->contents());  
     return EST_Val(a);
 }
 

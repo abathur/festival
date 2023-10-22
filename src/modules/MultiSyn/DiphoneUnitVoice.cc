@@ -65,6 +65,9 @@
 
 #include "EST_Val.h"
 
+using namespace std;
+
+
 SIOD_REGISTER_TYPE(itemlist,ItemList)
 VAL_REGISTER_TYPE(itemlist,ItemList)
 
@@ -375,7 +378,10 @@ static EST_VTCandidate* getCandidatesFunction( EST_Item *s,
 {
   DiphoneUnitVoice *duv = globalTempVoicePtr;  
   if( duv==0 )
+  {
     EST_error( "Candidate source voice is unset" );
+    return NULL; /* In case EST_error does return */
+  }
 
   return duv->getCandidates( s, f );
 }
@@ -641,7 +647,10 @@ static EST_VTCandidate* getCandidatesWithOmissionsFunction( EST_Item *s, EST_Fea
 {
   DiphoneUnitVoice *duv = globalTempVoicePtr;  
   if( duv==0 )
+  {
     EST_error( "Candidate source voice is unset" );
+    return NULL;
+  }
 
   //get candidate list as usual
   EST_VTCandidate *candlist = duv->getCandidates( s, f );

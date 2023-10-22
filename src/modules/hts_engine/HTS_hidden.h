@@ -53,10 +53,11 @@
 #define HTS_HIDDEN_H_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_HIDDEN_H_START;
+HTS_HIDDEN_H_START
 
 /* hts_engine libraries */
 #include "HTS_engine.h"
+#include "stddef.h"
 
 /* common ---------------------------------------------------------- */
 
@@ -117,16 +118,16 @@ size_t HTS_fread_little_endian(void *buf, size_t size, size_t n, HTS_File * fp);
 size_t HTS_fwrite_little_endian(const void *buf, size_t size, size_t n, FILE * fp);
 
 /* HTS_get_pattern_token: get pattern token (single/double quote can be used) */
-HTS_Boolean HTS_get_pattern_token(HTS_File * fp, char *buff, int bufflen);
+HTS_Boolean HTS_get_pattern_token(HTS_File * fp, char *buff, size_t bufflen);
 
 /* HTS_get_token: get token from file pointer (separators are space,tab,line break) */
-HTS_Boolean HTS_get_token_from_fp(HTS_File * fp, char *buff, int bufflen);
+HTS_Boolean HTS_get_token_from_fp(HTS_File * fp, char *buff, size_t bufflen);
 
 /* HTS_get_token: get token from file pointer with specified separator */
 HTS_Boolean HTS_get_token_from_fp_with_separator(HTS_File * fp, char *buff, char separator);
 
 /* HTS_get_token_from_string: get token from string (separator are space,tab,line break) */
-HTS_Boolean HTS_get_token_from_string(const char *string, size_t * index, char *buff, int bufflen);
+HTS_Boolean HTS_get_token_from_string(const char *string, size_t * index, char *buff, size_t bufflen);
 
 /* HTS_get_token_from_string_with_separator: get token from string with specified separator */
 HTS_Boolean HTS_get_token_from_string_with_separator(const char *str, size_t * index, char *buff, char separator);
@@ -499,6 +500,6 @@ void HTS_Vocoder_synthesize(HTS_Vocoder * v, size_t m, double lf0, double *spect
 /* HTS_Vocoder_clear: clear vocoder */
 void HTS_Vocoder_clear(HTS_Vocoder * v);
 
-HTS_HIDDEN_H_END;
+HTS_HIDDEN_H_END
 
 #endif                          /* !HTS_HIDDEN_H */

@@ -47,6 +47,7 @@
 
 #include "DiphoneBackoff.h"
 
+using namespace std;
 
 const EST_String DiphoneBackoff::default_match = "_";
 

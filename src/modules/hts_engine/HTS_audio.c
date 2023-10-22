@@ -53,7 +53,7 @@
 #define HTS_AUDIO_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_AUDIO_C_START;
+HTS_AUDIO_C_START
 
 #if !defined(AUDIO_PLAY_WIN32) && !defined(AUDIO_PLAY_PORTAUDIO) && !defined(AUDIO_PLAY_NONE)
 #if defined(__WINCE__) || defined(_WINCE) || defined(_WINCE) || defined(__WINCE) || defined(__WIN32__) || defined(__WIN32) || defined(_WIN32) || defined(WIN32) || defined(__CYGWIN__) || defined(__MINGW32__)
@@ -500,6 +500,6 @@ void HTS_Audio_clear(HTS_Audio * audio)
 
 #endif                          /* AUDIO_PLAY_NONE */
 
-HTS_AUDIO_C_END;
+HTS_AUDIO_C_END
 
 #endif                          /* !HTS_AUDIO_C */

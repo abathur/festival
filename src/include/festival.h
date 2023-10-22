@@ -42,8 +42,6 @@
 #include <cstdlib>
 #include <fstream>
 
-using namespace std;
-
 #include "EST.h"
 #include "EST_cutils.h"
 #include "siod.h"
@@ -58,7 +56,7 @@ struct ModuleDescription;
 
 /* An iostream for outputing debug messages, switchable    */
 /* to /dev/null or cerr                                    */
-extern ostream *cdebug;
+extern std::ostream *cdebug;
 #define cwarn cout
 extern "C" FILE* stddebug;
 extern int ft_server_socket;
@@ -138,6 +136,7 @@ const EST_String utt_type(EST_Utterance &utt);
 void add_item_features(EST_Item *s,LISP features);
 
 extern const char *festival_libdir;
+extern const char *festival_libexecdir;
 
 //  Module specific LISP/etc definitions
 void festival_init_modules(void);

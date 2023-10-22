@@ -41,6 +41,8 @@
 #include "festival.h"
 #include "lexiconP.h"
 
+using namespace std;
+
 static EST_String Phrase("Phrase");
 static EST_Val f_content("content");
 static EST_Val f_string0("0");

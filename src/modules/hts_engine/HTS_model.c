@@ -53,7 +53,7 @@
 #define HTS_MODEL_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_MODEL_C_START;
+HTS_MODEL_C_START
 
 #include <stdlib.h>             /* for atoi(),abs() */
 #include <string.h>             /* for strlen(),strstr(),strrchr(),strcmp() */
@@ -134,7 +134,7 @@ static HTS_Boolean HTS_is_num(const char *buff)
 /* HTS_name2num: convert name of node to number */
 static size_t HTS_name2num(const char *buff)
 {
-   size_t i;
+   ptrdiff_t i;
 
    for (i = strlen(buff) - 1; '0' <= buff[i] && buff[i] <= '9' && i >= 0; i--);
    i++;
@@ -1657,6 +1657,6 @@ void HTS_ModelSet_get_gv(HTS_ModelSet * ms, size_t stream_index, const char *str
       HTS_Model_add_parameter(&ms->gv[i][stream_index], 2, string, mean, vari, NULL, iw[i]);
 }
 
-HTS_MODEL_C_END;
+HTS_MODEL_C_END
 
 #endif                          /* !HTS_MODEL_C */

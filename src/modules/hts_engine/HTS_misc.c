@@ -53,7 +53,7 @@
 #define HTS_MISC_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_MISC_C_START;
+HTS_MISC_C_START
 
 #include <stdlib.h>             /* for exit(),calloc(),free() */
 #include <stdarg.h>             /* for va_list */
@@ -333,7 +333,7 @@ size_t HTS_fwrite_little_endian(const void *buf, size_t size, size_t n, FILE * f
 }
 
 /* HTS_get_pattern_token: get pattern token (single/double quote can be used) */
-HTS_Boolean HTS_get_pattern_token(HTS_File * fp, char *buff, int bufflen)
+HTS_Boolean HTS_get_pattern_token(HTS_File * fp, char *buff, size_t bufflen)
 {
    char c;
    size_t i;
@@ -395,7 +395,7 @@ HTS_Boolean HTS_get_pattern_token(HTS_File * fp, char *buff, int bufflen)
 }
 
 /* HTS_get_token: get token from file pointer (separators are space, tab, and line break) */
-HTS_Boolean HTS_get_token_from_fp(HTS_File * fp, char *buff, int bufflen)
+HTS_Boolean HTS_get_token_from_fp(HTS_File * fp, char *buff, size_t bufflen)
 {
    char c;
    size_t i;
@@ -459,7 +459,7 @@ HTS_Boolean HTS_get_token_from_fp_with_separator(HTS_File * fp, char *buff, char
 }
 
 /* HTS_get_token_from_string: get token from string (separators are space, tab, and line break) */
-HTS_Boolean HTS_get_token_from_string(const char *string, size_t * index, char *buff, int bufflen)
+HTS_Boolean HTS_get_token_from_string(const char *string, size_t * index, char *buff, size_t bufflen)
 {
    char c;
    size_t i;
@@ -606,6 +606,6 @@ void HTS_error(int error, const char *message, ...)
       exit(error);
 }
 
-HTS_MISC_C_END;
+HTS_MISC_C_END
 
 #endif                          /* !HTS_MISC_C */

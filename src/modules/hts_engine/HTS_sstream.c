@@ -53,7 +53,7 @@
 #define HTS_SSTREAM_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_SSTREAM_C_START;
+HTS_SSTREAM_C_START
 
 #include <stdlib.h>
 #include <math.h>
@@ -494,6 +494,6 @@ void HTS_SStreamSet_clear(HTS_SStreamSet * sss)
    HTS_SStreamSet_initialize(sss);
 }
 
-HTS_SSTREAM_C_END;
+HTS_SSTREAM_C_END
 
 #endif                          /* !HTS_SSTREAM_C */

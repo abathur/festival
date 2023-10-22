@@ -101,7 +101,7 @@ inline bool operator == ( const ScorePair &A, const ScorePair &B )
   return ( A._score == B._score ) ? true : false;
 }
 
-ostream& operator<<( ostream& out, const ScorePair &sp );
+std::ostream& operator<<( std::ostream& out, const ScorePair &sp );
 
 
 #endif // __TARGETCOSTRESCORING_H__

@@ -54,6 +54,9 @@
 #include "festival.h"
 #include "festivalP.h"
 
+using namespace std;
+
+
 #define DEFAULT_MAX_CLIENTS 10
 
 /* The folloing gives a server that never forks */
@@ -238,19 +241,18 @@ static int client_access_check(int fd,int client)
     }
     
     passwd = siod_get_lval("server_passwd",NULL);
+    const size_t passwd_length = strlen(get_c_string(passwd));
     if ((client_access == TRUE) && (passwd != NULL))
     {
-	char *client_passwd = walloc(char,strlen(get_c_string(passwd))+1);
-	if ((unsigned int)read(fd,client_passwd,strlen(get_c_string(passwd))) !=
-            (unsigned int)strlen(get_c_string(passwd)))
+	char *client_passwd = walloc(char,passwd_length+1);
+	if ((unsigned int)read(fd,client_passwd,passwd_length) !=
+            (unsigned int)passwd_length)
         {
             client_access = FALSE;
 	    reason = "bad passwd";
 	}
-	client_passwd[strlen(get_c_string(passwd))] = '\0';
-	if (streq(get_c_string(passwd),client_passwd))
-	    client_access = TRUE;
-	else
+	client_passwd[passwd_length] = '\0';
+	if (!streq(get_c_string(passwd),client_passwd))
 	{
 	    client_access = FALSE;
 	    reason = "bad passwd";

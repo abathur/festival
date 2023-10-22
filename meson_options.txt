@@ -1,0 +1,9 @@
+# festival components:
+option('diphone', type: 'boolean', value: false)
+option('hts_engine', type: 'boolean', value: true)
+option('clunits', type: 'boolean', value: true)
+option('clustergen', type: 'boolean', value: true)
+option('MultiSyn', type: 'boolean', value: true)
+option('UniSyn_phonology', type: 'boolean', value: false)
+
+option('rxp', type: 'boolean', value: true) # should default be based on speech-tools?

@@ -114,7 +114,7 @@ class EST_FlatTargetCost : public EST_TargetCost {
     EST_error("EST_FlatTargetCost operator() called with EST_Items\n");
     return 1; }
   float operator()(const TCData *targ, const TCData *cand) const;
-  const bool is_flatpack() const { return true; }
+  bool is_flatpack() const { return true; }
   TCData *flatpack(EST_Item *seg) const;
 
 

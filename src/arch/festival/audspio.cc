@@ -43,6 +43,8 @@
 #include "festival.h"
 #include "festivalP.h"
 
+using namespace std;
+
 #ifdef NO_SPOOLER
 void audsp_play_wave(EST_Wave *w) { cerr << "no spooler available\n"; }
 LISP l_audio_mode(LISP mode) { return NIL; }
@@ -124,7 +126,7 @@ LISP l_audio_mode(LISP mode)
 	{
 	    audio = ft_get_param("Audio_Method");
 	    command = ft_get_param("Audio_Command");
-	    audfds = pipe_open("audsp");
+	    audfds = pipe_open((const char*) EST_String::cat(festival_libexecdir, "/audsp"));
 	    if (audio != NIL)
 		audsp_send(EST_String("method ")+get_c_string(audio));
 	    if (command != NIL)
@@ -202,6 +204,11 @@ static int *pipe_open(const char *command)
     int *fds;
 
     argv = enargen(command,&argc);
+    if (argv == NULL)
+    {
+	cerr << "pipe_open: error parsing command: \"" << command << "\"\n";
+	festival_error();
+    }
     fds = walloc(int,2);
 
     if (start_sub_process(fds,argc,argv) != 0)

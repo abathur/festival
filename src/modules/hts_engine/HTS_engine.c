@@ -53,7 +53,7 @@
 #define HTS_ENGINE_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_ENGINE_C_START;
+HTS_ENGINE_C_START
 
 #include <stdlib.h>             /* for atof() */
 #include <string.h>             /* for strcpy() */
@@ -739,6 +739,6 @@ void HTS_Engine_clear(HTS_Engine * engine)
    HTS_Engine_initialize(engine);
 }
 
-HTS_ENGINE_C_END;
+HTS_ENGINE_C_END
 
 #endif                          /* !HTS_ENGINE_C */

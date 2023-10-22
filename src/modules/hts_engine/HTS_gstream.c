@@ -53,7 +53,7 @@
 #define HTS_GSTREAM_C_END
 #endif                          /* __CPLUSPLUS */
 
-HTS_GSTREAM_C_START;
+HTS_GSTREAM_C_START
 
 /* hts_engine libraries */
 #include "HTS_hidden.h"
@@ -196,6 +196,6 @@ void HTS_GStreamSet_clear(HTS_GStreamSet * gss)
    HTS_GStreamSet_initialize(gss);
 }
 
-HTS_GSTREAM_C_END;
+HTS_GSTREAM_C_END
 
 #endif                          /* !HTS_GSTREAM_C */

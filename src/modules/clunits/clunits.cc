@@ -78,6 +78,8 @@
 #include "festival.h"
 #include "clunits.h"
 
+using namespace std;
+
 static EST_String static_unit_prev_move = "unit_prev_move";
 static EST_String static_unit_this_move = "unit_this_move";
 static EST_String static_jscore = "local_join_cost";
@@ -101,8 +103,8 @@ static float optimal_couple(CLunit *u0,
 static void cl_parse_diphone_times(EST_Relation &diphone_stream, 
 				   EST_Relation &source_lab);
 
-VAL_REGISTER_CLASS_NODEL(vtcand,EST_VTCandidate);
-VAL_REGISTER_CLASS_NODEL(clunit,CLunit);
+VAL_REGISTER_CLASS_NODEL(vtcand,EST_VTCandidate)
+VAL_REGISTER_CLASS_NODEL(clunit,CLunit)
 
 LISP selection_trees = NIL;
 LISP clunits_params = NIL;
